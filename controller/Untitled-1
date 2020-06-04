@@ -1,18 +1,18 @@
 {
-  quiz: {
-    title: "ABCD",
-    questions: [{
-      title: "QuestionTitle",
-      options: ["a", "b", "c", "d"],
-      answers: ["a", "c"]
+  "quiz": {
+    "title": "ABCD",
+    "questions": [{
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
     },{
-      title: "QuestionTitle",
-      options: ["a", "b", "c", "d"],
-      answers: ["a", "c"]
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
     },{
-      title: "QuestionTitle",
-      options: ["a", "b", "c", "d"],
-      answers: ["a", "c"]
+      "title": "QuestionTitle",
+      "options": ["a", "b", "c", "d"],
+      "answers": ["a", "c"]
     }]
   }
 }

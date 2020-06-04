@@ -3,9 +3,13 @@ var router = express.Router();
 
 var quizController = require("../controller/quiz");
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-	res.send("respond with a resource");
-});
+//create a quiz
 router.post("/", quizController.createQuiz);
+
+//find a quiz
+router.get("/:id", quizController.showQuiz);
+
+//update a quiz
+router.put("/:id", quizController.updateQuiz);
+
 module.exports = router;
