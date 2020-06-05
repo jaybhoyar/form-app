@@ -4,7 +4,7 @@ var { isValidQuestion } = require("../util/validatorModule");
 
 module.exports = {
 	createQuestion: async (req, res, next) => {
-		//find id of the quiz it belongs to
+		// find id of the quiz it belongs to
 		var question = req.body.question;
 		try {
 			if (!isValidQuestion(question)) {
@@ -34,6 +34,7 @@ module.exports = {
 			next(error);
 		}
 	},
+
 	updateQuestion: async (req, res, next) => {
 		var questionId = req.params.id;
 		try {
@@ -56,12 +57,12 @@ module.exports = {
 		} catch (error) {
 			next(error);
 		}
-		//extract the question id from req.params
-		//use trycatch block to capture any errors
-		//validations: (send appropriate respose based on different validations)
-		//check if the question exists in req.body
-		//use isValidQuestion module to weed out incorrect entries
-		//use findByIdAndUpdate and pass in id and data from req.body as parameters
+		// extract the question id from req.params
+		// use trycatch block to capture any errors
+		// validations: (send appropriate respose based on different validations)
+		// check if the question exists in req.body
+		// use isValidQuestion module to weed out incorrect entries
+		// use findByIdAndUpdate and pass in id and data from req.body as parameters
 	},
 	deleteQuestion: async (req, res, next) => {
 		var questionId = req.params.id;
@@ -79,10 +80,10 @@ module.exports = {
 		} catch (error) {
 			next(error);
 		}
-		//extract the question id from req.params
-		//use trycatch block to capture any errors
-		// validations: (send appropriate respose based on different validations)
-		//remove the question id from the respective quiz
-		//use findByIdAndDelete and pass in id
+		// extract the question id from req.params
+		// use trycatch block to capture any errors
+		//  validations: (send appropriate respose based on different validations)
+		// remove the question id from the respective quiz
+		// use findByIdAndDelete and pass in id
 	},
 };
