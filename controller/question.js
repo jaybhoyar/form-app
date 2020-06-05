@@ -64,6 +64,7 @@ module.exports = {
 		// use isValidQuestion module to weed out incorrect entries
 		// use findByIdAndUpdate and pass in id and data from req.body as parameters
 	},
+
 	deleteQuestion: async (req, res, next) => {
 		var questionId = req.params.id;
 		try {
