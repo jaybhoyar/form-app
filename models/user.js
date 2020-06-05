@@ -33,7 +33,7 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function (next) {
 	try {
-		if (this.password && this.isModified()) {
+		if (this.password && this.isModified("password")) {
 			this.password = await hash(this.password, 10);
 		}
 		next();
