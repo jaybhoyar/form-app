@@ -7,9 +7,9 @@ var questionController = require("../controller/question");
 router.post("/", questionController.createQuestion);
 
 //delete a question
-// router.delete("/:id", questionController.deleteQuestion);
+router.delete("/:id", questionController.deleteQuestion);
 
 // //update a question
-// router.put("/:id", questionController.updateQuestion);
+router.put("/:id", questionController.updateQuestion);
 
 module.exports = router;
