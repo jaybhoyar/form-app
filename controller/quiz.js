@@ -91,6 +91,9 @@ module.exports = {
       next(error);
     }
   },
+  deleteQuiz : async (req , res ,next) => {
+
+  },
   attemptQuiz: async (req, res, next) => {
     try {
       var attempt = req.body.attempt;

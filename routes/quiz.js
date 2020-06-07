@@ -13,10 +13,12 @@ router.get("/:id", quizController.showQuiz);
 //update a quiz
 router.put("/:id", auth.validateJwt, quizController.updateQuiz);
 
+// delete a quiz 
+router.delete("/:id" ,auth.validateJwt, quizController.deleteQuiz);
+
 
 router.post("/:id/attempt", auth.allowGuest , auth.validateJwt, quizController.attemptQuiz);
 
-// delete a quiz 
 
 
 
