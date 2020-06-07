@@ -17,9 +17,9 @@ mongoose.connect(
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
-		createIndexes: true,
+		useCreateIndex: true
 	},
-	() => console.log("**connected**")
+	() => console.log("**Database connected**")
 );
 
 var app = express();

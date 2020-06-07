@@ -13,4 +13,16 @@ router.get("/:id", quizController.showQuiz);
 //update a quiz
 router.put("/:id", auth.validateJwt, quizController.updateQuiz);
 
+
+router.post("/:id/attempt", auth.allowGuest , auth.validateJwt, quizController.attemptQuiz);
+
+// delete a quiz 
+
+
+
+
+
+
+
+
 module.exports = router;

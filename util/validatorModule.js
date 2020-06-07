@@ -28,4 +28,8 @@ function isValidUser(user) {
 		user.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
 	);
 }
+
+
+
+
 module.exports = { isValidQuestion, isValidUser };
