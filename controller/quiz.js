@@ -92,6 +92,36 @@ module.exports = {
     }
   },
   deleteQuiz : async (req , res ,next) => {
+    
+    try {
+
+      var quizId  = req.params.id;
+
+      var quiz = await Quiz.findById(quizId);
+      if(!quiz){
+          return res.status(404).send({massage : "Quiz not found"});
+        }
+      if(req.userId !== quiz.authorId){
+       return res.status(403).send({massage : "You are not authorized to delete the quiz"});
+      }
+       
+      var {questions} = quiz;
+     
+      // delete all questions
+       await Question.deleteMany({ _id : {
+        $in : questions
+      }})
+     
+      // finally delete quiz
+       await Quiz.findByIdAndDelete(quizId);
+
+        res.send({massage : "Quiz deleted successfully"})
+
+    } catch (error) {
+        next(error);
+    }
+
+
 
   },
   attemptQuiz: async (req, res, next) => {
