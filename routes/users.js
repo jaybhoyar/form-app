@@ -4,18 +4,16 @@ var userController = require("../controller/user");
 
 var auth = require("../util/auth");
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
-});
+/* Get the current login user */
+router.get("/", auth.validateJwt , userController.getCurrentUser)
 
-// register
+// Register
 router.post("/", userController.registerUser);
 
-//login
+//Login
 router.post("/login", userController.loginUser);
 
-//update
+//Update
 router.put("/",auth.validateJwt, userController.updateUser);
 
 module.exports = router;
