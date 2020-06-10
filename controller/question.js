@@ -80,7 +80,7 @@ module.exports = {
 			res.json({ message: "question deleted successfully" });
 		} catch (error) {
 			next(error);
-		}
+    }
 		// extract the question id from req.params
 		// use trycatch block to capture any errors
 		//  validations: (send appropriate respose based on different validations)
