@@ -13,16 +13,25 @@ module.exports = {
 	validateJwt: async (req, res, next) => {
 		try {
 			var token = req.headers["authorization"] || "";
-			if (!token) {
+			if (!token && !req.isGuestAllowed) {
 				return res.status(401).json({ message: "token required" });
 			}
 			var payload = await jwt.verify(token, process.env.SECRET);
 			req.userId = payload.userId;
 			next();
 		} catch (error) {
-			return res
-				.status(401)
-				.json({ error: error.message || "something went wrong" });
+			if(req.isGuestAllowed) {
+				next();
+			} else {
+				return res
+					.status(401)
+					.json({ error: error.message || "something went wrong" });
+			}
 		}
 	},
+	
+	allowGuest: (req, res, next) => {
+		req.isGuestAllowed = true;
+		next();
+	}
 };
